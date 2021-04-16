@@ -156,6 +156,6 @@
 
 	</platform>
 
-	<hook type="before_plugin_install" src="scripts/installDepedencies.js" />
+	<hook type="before_plugin_install" src="scripts/installDependencies.js" />
 	<hook type="after_prepare" src="scripts/after_prepare.js" />
 </plugin>
