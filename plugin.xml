@@ -12,6 +12,9 @@
 		<engine name="cordova-ios" version=">=5" />
 	</engines>
 
+	<hook type="before_plugin_install" src="scripts/installDependencies.js" />
+	<hook type="before_plugin_install" src="scripts/before_plugin_install.js" />
+
 	<preference name="FIREBASE_ANALYTICS_COLLECTION_ENABLED" default="true" />
 	<preference name="FIREBASE_PERFORMANCE_COLLECTION_ENABLED" default="true" />
 	<preference name="FIREBASE_CRASHLYTICS_COLLECTION_ENABLED" default="true" />
@@ -156,6 +159,5 @@
 
 	</platform>
 
-	<hook type="before_plugin_install" src="scripts/installDependencies.js" />
 	<hook type="after_prepare" src="scripts/after_prepare.js" />
 </plugin>
