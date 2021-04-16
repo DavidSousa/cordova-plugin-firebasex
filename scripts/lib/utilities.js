@@ -176,7 +176,7 @@ Utilities.extractZip = function(zipPath, extractTo) {
 }
 
 Utilities.getResourcesPath = function() {
-    const basePath = path.join(_context.opts.projectRoot, "platforms", context.opts.plugin.platform);
+    const basePath = path.join(_context.opts.projectRoot, "platforms", _context.opts.plugin.platform);
     switch (_context.opts.plugin.platform) {
         case "android":
             return path.join(basePath, "assets/www");
