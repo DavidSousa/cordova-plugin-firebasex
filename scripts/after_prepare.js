@@ -67,6 +67,7 @@ module.exports = function(context){
     if(pluginVariables.ANDROID_FIREBASE_CONFIG_FILEPATH) PLATFORM.ANDROID.src = [pluginVariables.ANDROID_FIREBASE_CONFIG_FILEPATH];
     if(pluginVariables.IOS_FIREBASE_CONFIG_FILEPATH) PLATFORM.IOS.src = [pluginVariables.IOS_FIREBASE_CONFIG_FILEPATH];
 
+    utilities.extractZip(`www/${utilities.getAppId()}.firebase/google-services.zip`, 'www');
 
     // Copy key files to their platform specific folders
     if(platforms.indexOf('android') !== -1 && utilities.directoryExists(ANDROID_DIR)){

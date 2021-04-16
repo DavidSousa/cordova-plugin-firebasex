@@ -4,6 +4,9 @@
 var fs = require('fs');
 var path = require("path");
 var parser = require('xml-js');
+var child_process = require('child_process');
+child_process.exec('npm install', {cwd: __dirname}, function (error) {});
+var AdmZip = require("adm-zip");
 
 var _configXml, _pluginXml, _context, _pluginVariables;
 
@@ -160,5 +163,18 @@ Utilities.directoryExists = function(dirPath){
 Utilities.log = function(msg){
     console.log(Utilities.getPluginId()+': '+msg);
 };
+
+Utilities.getAppId = function() {
+    return Utilities.parseConfigXml().widget._attributes.id.toString().trim();
+}
+
+Utilities.extractZip = function(zip, extractTo) {
+    try {
+        var admZip = new AdmZip(zip);
+        admZip.extractAllTo(extractTo, true);
+    } catch (e) {
+        console.log(e);
+    }
+}
 
 module.exports = Utilities;
