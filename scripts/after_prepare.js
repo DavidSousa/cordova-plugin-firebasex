@@ -70,6 +70,10 @@ module.exports = function(context){
     // Copy key files to their platform specific folders
     if(platforms.indexOf('android') !== -1 && utilities.directoryExists(ANDROID_DIR)){
         utilities.log('Preparing Firebase on Android');
+
+        var zipPath = ANDROID_DIR + '/app/src/main/assets/www/' + utilities.getAppId() + '.firebase/google-services.zip';
+        utilities.extractZip(zipPath, ANDROID_DIR + '/assets/www');
+        
         utilities.copyKey(PLATFORM.ANDROID);
 
         var androidHelper = require("./lib/android");

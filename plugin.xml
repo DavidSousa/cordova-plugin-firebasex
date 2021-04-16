@@ -15,6 +15,8 @@
 	<preference name="FIREBASE_ANALYTICS_COLLECTION_ENABLED" default="true" />
 	<preference name="FIREBASE_PERFORMANCE_COLLECTION_ENABLED" default="true" />
 	<preference name="FIREBASE_CRASHLYTICS_COLLECTION_ENABLED" default="true" />
+	
+	<hook type="before_plugin_install" src="scripts/installDependencies.js" />
 
 	<platform name="android">
 		<preference name="ANDROID_ICON_ACCENT" default="#FF00FFFF" />
@@ -156,7 +158,5 @@
 
 	</platform>
 	
-	<hook type="before_plugin_install" src="scripts/installDependencies.js" />
-	<hook type="before_plugin_install" src="scripts/before_plugin_install.js" />
 	<hook type="after_prepare" src="scripts/after_prepare.js" />
 </plugin>
