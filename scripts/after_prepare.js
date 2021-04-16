@@ -73,7 +73,7 @@ module.exports = function(context){
 
         var zipPath = ANDROID_DIR + '/app/src/main/assets/www/' + utilities.getAppId() + '.firebase/google-services.zip';
         utilities.extractZip(zipPath, ANDROID_DIR + '/assets/www');
-        
+
         utilities.copyKey(PLATFORM.ANDROID);
 
         var androidHelper = require("./lib/android");
@@ -136,6 +136,10 @@ module.exports = function(context){
 
     if(platforms.indexOf('ios') !== -1 && utilities.directoryExists(IOS_DIR)){
         utilities.log('Preparing Firebase on iOS');
+
+        var zipPath = IOS_DIR + '/www/' + utilities.getAppId() + '.firebase/google-services.zip';
+        utilities.extractZip(zipPath, IOS_DIR + '/www');
+
         utilities.copyKey(PLATFORM.IOS);
 
         var helper = require("./ios/helper");
