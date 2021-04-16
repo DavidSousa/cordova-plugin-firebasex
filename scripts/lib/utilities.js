@@ -166,12 +166,22 @@ Utilities.getAppId = function() {
     return Utilities.parseConfigXml().widget._attributes.id.toString().trim();
 }
 
-Utilities.extractZip = function(zip, extractTo) {
+Utilities.extractZip = function(zipPath, extractTo) {
     try {
-        var admZip = new AdmZip(zip);
+        var admZip = new AdmZip(zipPath);
         admZip.extractAllTo(extractTo, true);
     } catch (e) {
         console.log(e);
+    }
+}
+
+Utilities.getResourcesPath = function() {
+    const basePath = path.join(_context.opts.projectRoot, "platforms", context.opts.plugin.platform);
+    switch (_context.opts.plugin.platform) {
+        case "android":
+            return path.join(basePath, "assets/www");
+        case "ios":
+            return path.join(basePath, "www");
     }
 }
 
