@@ -4,8 +4,6 @@
 var fs = require('fs');
 var path = require("path");
 var parser = require('xml-js');
-var child_process = require('child_process');
-child_process.exec('npm install', {cwd: __dirname}, function (error) {});
 var AdmZip = require("adm-zip");
 
 var _configXml, _pluginXml, _context, _pluginVariables;
